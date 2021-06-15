@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="number" class="form-label">Card number</label>
+        <input type="text" class="form-control" id="number" name="number">
+    </div>
+    <div class="mb-3">
+        <label for="pin" class="form-label">Pin</label>
+        <input type="password" class="form-control" id="pin" name="pin">
+    </div>
+    <button type="submit" class="btn btn-primary">Start</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger error-message" role="alert">
+        @Model.ErrorMessage
+    </div>
+}
+
