@@ -92,5 +92,15 @@ namespace Atm.Data
 
             return result;
         }
+
+        public IEnumerable<Account> GetCustomerAccounts()
+        {
+            if(_currentCustomer == null)
+            {
+                throw new ArgumentNullException("Customer not set");
+            }
+
+            return _currentCustomer.Accounts;
+        }
     }
 }

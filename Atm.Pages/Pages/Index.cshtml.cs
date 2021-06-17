@@ -24,15 +24,31 @@ namespace Atm.Pages.Pages
         {
         }
 
-        public void OnPost(string number, int pin)
+        public IActionResult OnPost(string number, int pin)
         {
             var card = Startup.Cards.FirstOrDefault(c => c.Number == number);
 
             if(card == null)
             {
                 ErrorMessage = "Unable to find a card";
-                return;
+                return Page();
             }
+
+            if(!card.IsPinValid(pin))
+            {
+                ErrorMessage = "Invalid PIN";
+                return Page();
+            }
+
+            var result = Startup.Atm.Start(card, pin);
+
+            if(!result)
+            {
+                ErrorMessage = "Something wrong!";
+                return Page();
+            }
+
+            return RedirectToPage("AccountList");
         }
     }
 }
