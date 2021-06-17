@@ -19,7 +19,7 @@ Number of accounts: @Model.Accounts.Count();
             <tr>
                 <td>@account.Number</td>
                 <td>@string.Format("{0:0.00}", account.Balance)</td>
-                <td>&nbsp;</td>
+                <td><a href="/AccountList?accountId=@account.Number" class="btn btn-primary" role="button">Withdraw</a></td>
             </tr>
         }
     </tbody>

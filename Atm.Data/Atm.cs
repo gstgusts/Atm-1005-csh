@@ -7,6 +7,7 @@ namespace Atm.Data
     public class Atm
     {
         const string AccountNotSet = "Current account is not set";
+        const string CustomerNotSet = "Current customer is not set";
 
         public Atm(int balance, List<Customer> customers)
         {
@@ -97,10 +98,19 @@ namespace Atm.Data
         {
             if(_currentCustomer == null)
             {
-                throw new ArgumentNullException("Customer not set");
+                throw new ArgumentNullException(CustomerNotSet);
             }
 
             return _currentCustomer.Accounts;
+        }
+
+        public Account GetCurrentAccount() {
+            if(_currentAccount == null)
+            {
+                throw new ArgumentNullException(AccountNotSet);
+            }
+
+            return _currentAccount;
         }
     }
 }

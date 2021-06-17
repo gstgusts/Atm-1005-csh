@@ -1,0 +1,11 @@
+﻿@page
+@model Atm.Pages.Pages.Index1Model
+@{
+}
+
+<div>
+    <span>Account number: <strong>@Model.Account.Number</strong></span>
+</div>
+<div>
+    <span>Balance: <strong>@string.Format("{0:0.00}", Model.Account.Balance)</strong></span>
+</div>
