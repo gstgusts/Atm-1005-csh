@@ -19,7 +19,7 @@ namespace Atm.Pages
         {
             Configuration = configuration;
 
-            Atm = new Data.Atm(1000, Data.DataRepository.GetCustomers());
+            Atm = new Data.Atm(100, Data.DataRepository.GetCustomers());
             Cards = Data.DataRepository.GetCards();
         }
 

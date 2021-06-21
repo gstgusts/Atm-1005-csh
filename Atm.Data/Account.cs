@@ -6,6 +6,11 @@ namespace Atm.Data
 {
     public class Account
     {
+        public Account()
+        {
+
+        }
+
         public Account(string number, double balance)
         {
             Number = number;

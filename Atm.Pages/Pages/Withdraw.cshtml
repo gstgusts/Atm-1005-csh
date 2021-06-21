@@ -9,3 +9,25 @@
 <div>
     <span>Balance: <strong>@string.Format("{0:0.00}", Model.Account.Balance)</strong></span>
 </div>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" step="5" min="0" max="@Math.Round(Model.Account.Balance, 0)" class="form-control" id="amount" name="amount">
+    </div>
+    <button type="submit" class="btn btn-primary">Withdraw</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger error-message" role="alert">
+        @Model.ErrorMessage
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="alert alert-success error-message" role="alert">
+        @Model.SuccessMessage
+    </div>
+}

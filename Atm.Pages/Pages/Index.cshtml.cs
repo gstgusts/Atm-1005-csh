@@ -22,6 +22,7 @@ namespace Atm.Pages.Pages
 
         public void OnGet()
         {
+            Startup.Atm.Exit();
         }
 
         public IActionResult OnPost(string number, int pin)
